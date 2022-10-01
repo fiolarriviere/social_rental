@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :places do
     resources :reservations, only: %i[new create]
   end
+  resources :reservations, only: %i[index show]
 end

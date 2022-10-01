@@ -1,23 +1,41 @@
 class ReservationsController < ApplicationController
+  def show
+    @place = place_params
+    @reservations = Reservation.all
+  end
+
+  def index
+    @reservation = Reservation.all
+  end
+
   def new
-    @place = Place.find(params[:place_id])
+    @place = place_params
     @reservation = Reservation.new
   end
 
   def create
+    @place = place_params
     @reservation = Reservation.new(reservation_params)
+    @reservation.status = "not avaible"
+    @reservation.place_id = @place.id
+    @reservation.user_id = current_user.id
+    if @reservation.date_finish - @reservation.date_start == 0
+      @reservation.total_price = @place.price
+    else
+      @reservation.total_price = (@reservation.date_finish - @reservation.date_start) * @place.price
+    end
     if @reservation.save
-      redirect_to reservation_path(@reservation)
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def index
-    @reservations = Reservation.all
-  end
-
   private
+
+  def place_params
+    Place.find(params[:place_id])
+  end
 
   def reservation_params
     params.require(:reservation).permit(
