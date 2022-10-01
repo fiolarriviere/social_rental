@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Nueva Reserva</h1>
+  <div>
+    <%= simple_form_for [@place, @reservation] do |f| %>
+      <%= f.input :date_start %>
+      <%= f.input :date_finish %>
+      <%= f.input :start_time %>
+      <%= f.input :finish_time %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <%= @resultado %>
+</div>
