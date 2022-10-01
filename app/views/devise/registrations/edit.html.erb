@@ -1,14 +1,32 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+  <h2>Editar perfil<!--  <%= resource_name.to_s.humanize %>--></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+
+    <%= f.input :first_name,
+    required: true,
+    input_html: { autocomplete: "first_name" } %>
+    <%= f.input :last_name,
+    required: true,
+    input_html: { autocomplete: "last_name" } %>
+    <%= f.input :phone_number,
+    required: true,
+    input_html: { autocomplete: "phone_number" } %>
+    <%= f.input :city,
+    required: true,
+    input_html: { autocomplete: "city" } %>
+
+
+    <!-- <%= f.input :email, required: true, autofocus: true, input_html: { disable: true } %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
+
+    <input type="text" id="lname" name="lname" disabled> -->
 
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
@@ -23,16 +41,17 @@
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="form-actions, mb-2">
+    <%= f.button :submit, "Actualizar" , class:"btn btn-outline-dark" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<!-- <h3>Cancel my account</h3> -->
 
-<div class="d-flex align-items-center">
-  <div>Unhappy?</div>
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link" %>
+<div class="d-flex align-items-center, mb-2">
+  <!-- <div>Unhappy?</div> -->
+  <%= button_to "Eliminar mi cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-dark" %>
 </div>
 
-<%= link_to "Back", :back %>
+<%= link_to "Regresar", :back, class:"btn btn-outline-dark" %>
+</div>
