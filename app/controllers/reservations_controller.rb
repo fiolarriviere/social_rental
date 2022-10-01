@@ -1,11 +1,11 @@
 class ReservationsController < ApplicationController
-  def show
-    @place = place_params
+  def index
+    
     @reservations = Reservation.all
   end
 
-  def index
-    @reservation = Reservation.all
+  def show
+
   end
 
   def new
