@@ -77,4 +77,7 @@ group :test do
   gem "webdrivers"
 end
 
+# Gemas adiconales
+
 gem "cloudinary"
+gem "geocoder"

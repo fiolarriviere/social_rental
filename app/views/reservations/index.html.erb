@@ -1,16 +1,24 @@
 <div class="container">
   <div>
-    <h1> Reservación </h1>
 
+    <div center="left" class= "btn btn-light" class="col-4">
+      <%= link_to "Ver más locales", places_path %>
+    </div>
+
+    <h1>Reservación del cliente:</h1>
+    <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+      <br>
     <% @reservations.each do |reservation| %>
       <ul><li>
-        <p>Cliente - <%= current_user.first_name %> <%= current_user.last_name %> </p>
-        <p>Inicio - <%= reservation.date_start %></p>
-        <p>Fin - <%= reservation.date_finish %></p>
+        <%= reservation.id %>
+        <p>Fecha:</p>
+        <p>Inicio - <%= reservation.date_start %> - <%#= reservation.start_time("%H:%M") %> </p>
+        <p>Fin - <%= reservation.date_finish %> - <%#= Time.now.reservation.start_time("%H:%M") %> </p>
+
         <%= reservation.place.photos.each do |photo|%>
           <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
         <% end %>
-        <p></p>
+
       </li></ul>
     <% end %>
   </div>

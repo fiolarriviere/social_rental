@@ -1,11 +1,10 @@
 class ReservationsController < ApplicationController
   def index
-    
     @reservations = Reservation.all
   end
 
   def show
-
+    @reservation = Reservation.find(params[:reservation_id])
   end
 
   def new
@@ -25,7 +24,7 @@ class ReservationsController < ApplicationController
       @reservation.total_price = (@reservation.date_finish - @reservation.date_start) * @place.price
     end
     if @reservation.save
-      redirect_to root_path
+      redirect_to places_path
     else
       render :new, status: :unprocessable_entity
     end
