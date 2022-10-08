@@ -2,14 +2,14 @@
   <div class="places_container">
       <div class="card-trip">
        <% @place.photos.each do |photo| %>
-       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+       <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= @place.city %></h2>
             <p><%= @place.address %></p>
           </div>
-          <h2 class="card-trip-pricing"><%= @place.price %></h2>
+          <h2 class="card-trip-pricing"><%= number_to_currency(@place.price)%></h2>
         </div>
       </div>
   </div>

@@ -1,18 +1,24 @@
 <div class="container">
   <div class="places_container">
     <% @places.each do |place| %>
+    <%#= link_to place_path(place) do %>
       <div class="card-trip">
        <% place.photos.last(1).each do |photo| %>
-        <%= cl_image_tag photo.key, crop: :fill %>
-      <% end %>
+          <%= cl_image_tag photo.key, crop: :fill %>
+       <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= place.city %></h2>
             <p><%= place.address %></p>
           </div>
-          <h2 class="card-trip-pricing"><%= place.price %></h2>
+          <h2 class="card-trip-pricing"><%= number_to_currency(place.price)%></h2>
+        </div>
+        <div class="btn btn-outline-dark mt-3"> <%= link_to "Reservar" %>
+        </div>
+        <div class="btn btn-outline-dark mt-3"><%= link_to "Reseñas" %>
         </div>
       </div>
+      <% #end %>
     <% end %>
   </div>
 </div>
