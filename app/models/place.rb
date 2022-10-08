@@ -9,6 +9,6 @@ class Place < ApplicationRecord
   pg_search_scope :search_by_places,
   against: [ :city, :area ],
   using: {
-    tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    tsearch: { prefix: true }
   }
 end

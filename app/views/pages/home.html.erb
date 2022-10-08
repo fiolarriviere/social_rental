@@ -1,46 +1,22 @@
 <!-- BANNER -->
-<div class="container">
-  <div class="banner_home" style="background-image: url(https://i.pinimg.com/originals/66/0f/2b/660f2b81d6b05367c87bca6e49608aa8.jpg);">
-    <h1>The Social Rental</h1>
-    <h3>Renta el local ideal para cualquier evento</h3>
+
+  <div class="banner_home" style="background-image: url(https://i.pinimg.com/originals/c6/74/57/c67457b78809bb5967e0ee1055e5cbd5.jpg);">
   </div>
-</div>
+
 
 <!-- BUSCADOR -->
 <!-- EVENTO | FECHA | CIUDAD | ASISTENTES -->
 
 <div class="container py-5 d-flex justify-content-center"> <!-- py espacio arriba y abajo  -->
-  <form class="row row-cols-lg-auto g-3 align-items-center">
-    <div class="col-12">
-      <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-text">¿Dónde?</div>
-        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Buscar">
-      </div>
-    </div>
 
-    <form class="row row-cols-lg-auto g-3 align-items-center">
-      <div class="col-12">
-        <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
-        <div class="input-group">
-          <div class="input-group-text">¿Cuándo?</div>
-          <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Buscar">
-        </div>
-      </div>
-
-      <form class="row row-cols-lg-auto g-3 align-items-center">
-        <div class="col-12">
-          <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
-          <div class="input-group">
-            <div class="input-group-text">¿Para cuántos?</div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Buscar">
-          </div>
-        </div>
-
-    <div class="col-12">
-      <button type="submit" class="btn btn-outline-dark">Buscar</button>
-    </div>
-  </form>
+  <%= form_with url: places_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "¿Dónde?"
+    %>
+    <%= submit_tag "Buscar", class: "btn btn-outline-dark" %>
+  <% end %>
 </div>
 
 <!-- CARDS -->
@@ -64,9 +40,10 @@
         </div>
         <h2 class="card-trip-pricing"><%= number_to_currency(place.price) %></h2>
       </div>
-      <div class="btn btn-outline-dark mt-3"><%= link_to "Ver mas", place_path(place) %>
-        </div>
-    </div>
+      <div class="container pb-3">
+        <div class="btn btn-outline-dark py3"><%= link_to "Ver más", place_path(place) %> </div>
+      </div>
+      </div>
     <% end %>
   </div>
 </div>
@@ -74,7 +51,7 @@
 
 <!-- CARRUSEL -->
 <div class="container py-3 d-flex justify-content-center">
-  <h4>Encuentra el local ideal para realizar el evento de tus sueños, con un click.</h4>
+  <h4>Encuentra con nosotros el lugar ideal para realizar el evento de tus sueños.</h4>
 </div>
 
 <div class="container pb-3 d-flex justify-content-center">
