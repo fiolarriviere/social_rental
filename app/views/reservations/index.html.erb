@@ -1,28 +1,36 @@
 <div class="container">
-  <div center="left" class= "btn btn-light" class="col-4">
-    <%= link_to "Ver más locales", places_path %>
-  </div>
-  <div>
+  <div class="bg-white">
     <h1>Reservación del cliente:</h1>
-    <h3><%= current_user.last_name %>, <%= current_user.first_name %></h3><br>
+    <h3> <%=  %> <%=  %></h3><br>
     <% @reservations.each do |reservation| %>
-      <div class="card mb-3" style="max-width: 740px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <% reservation.place.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 150, width: 250, crop: :pad %>
-            <% end %>
-          </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title"> <%= reservation.place.address %>, <%= reservation.place.city %> </h5>
-            <p class="card-text"> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"> Precio: <%= number_to_currency(reservation.total_price) %></p>
-            <%= link_to "Ver más informacion de la reserva", reservation_path(reservation) %>
-          </div>
+    <%= reservation.user.first_name %> <%= reservation.user.last_name %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+    <%# mostrar imagen  %>
+      <% reservation.place.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 150, width: 250, crop: :pad %>
+      <% end %>
+    <%# mostrar imagen  %>
+      <div class="row">
+        <div class="col-8 col-sm-6">
+
+          Level 2: .col-8 .col-sm-6
+
+        </div>
+        <div class="col-4 col-sm-6">
+          Level 2: .col-4 .col-sm-6
         </div>
       </div>
     </div>
-    <% end %>
+  </div>
+<% end %>
+</div>
+
+    <%# Boton  %>
+    <div class="container col-3 mb-5 py-5">
+      <%= link_to "Ver otros locales", places_path, class: "btn-outline-dark" %>
+    </div>
+    <%# fin Boton  %>
   </div>
 </div>
