@@ -1,0 +1,32 @@
+<div class="container mt-5 bg-light">
+    <h1>Mi Reserva:</h1>
+    <div class="d-flex justify-content-start mb-5 ">
+      <h1>
+        <%= @reservation.user.last_name %>, <%= @reservation.user.first_name %></h1>
+    </div>
+
+    <div class="card mb-3" style="max-width: 640px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <% @reservation.place.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 350, width: 350, crop: :pad %>
+            <% end %>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><%= @reservation.place.city %>, <%= @reservation.place.address %></h5>
+            <p class="card-text">Descripción del local a alquilar.</p>
+            <p class="card-text"><strong> Precio: <%= number_to_currency(@reservation.total_price) %></strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <div class= "btn btn-light" class="col-4">
+    <%= link_to "Escoger nuevo Local", places_path %>
+  </div>
+  <div class= "btn btn-light" class="col-4">
+    <%= link_to "", places_path %>
+  </div>
+</div>

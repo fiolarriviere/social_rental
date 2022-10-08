@@ -1,11 +1,10 @@
 class ReservationsController < ApplicationController
-  def show
-    @place = place_params
+  def index
     @reservations = Reservation.all
   end
 
-  def index
-    @reservation = Reservation.all
+  def show
+    @reservation = Reservation.find(params[:id])
   end
 
   def new
@@ -19,15 +18,17 @@ class ReservationsController < ApplicationController
     @reservation.status = "not avaible"
     @reservation.place_id = @place.id
     @reservation.user_id = current_user.id
-    if @reservation.date_finish - @reservation.date_start == 0
+    if (@reservation.date_finish - @reservation.date_start).zero?
       @reservation.total_price = @place.price
     else
       @reservation.total_price = (@reservation.date_finish - @reservation.date_start) * @place.price
     end
     if @reservation.save
-      redirect_to root_path
+      redirect_to reservation_path(@reservation)
+      flash[:notice] = "Reserva creada con éxito"
     else
       render :new, status: :unprocessable_entity
+      flash[:notice] = "Error - Revise los datos de la reserva"
     end
   end
 
