@@ -1,5 +1,9 @@
-<h2><%= @place.city %></h2>
-<p><%= @place.address %></p>
-<% @place.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<div class="container">
+  <h2>
+    <%= @place.city %>
+  </h2>
+  <p><%= @place.address %></p>
+  <% @place.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+</div>
