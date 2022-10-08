@@ -21,12 +21,12 @@
   <div class="form-actions">
     <div class="row">
       <div class="col-4 mb-2">
-        <%= f.button :submit, "Enviar", class:"btn btn-light" %>
+        <%= f.button :submit, "Enviar", class:"btn btn-outline-dark" %>
       </div>
     </div>
     <div class="row">
       <div class="col-4">
-        <%= render "devise/shared/links" %>
+        <%= link_to "Regresar", :back, class:"btn btn-outline-dark" %>
       </div>
     </div>
 <% end %>
