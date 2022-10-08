@@ -10,6 +10,7 @@
       <%= f.input :address, label: "Mi local se encuentra ubicado en ", placeholder: "Calle Las Moreas N° 34" %>
       <%= f.input :city, placeholder: "Caracas" %>
       <%= f.input :price, label: "Precio por hora, en dolares", placeholder: "10" %>
+      <%= f.input :description, label: "Descripción", placeholder: "Local amplio, con dos salones principales, recibidor, ubicación céntrica" %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.submit "Crear Local", class: "btn btn-primary" %>
       <% end %>

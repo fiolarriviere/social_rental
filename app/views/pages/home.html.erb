@@ -40,7 +40,7 @@
           <h2><%= place.city %></h2>
           <p><%= place.address %></p>
         </div>
-        <h2 class="card-trip-pricing"><%= place.price %></h2>
+        <h2 class="card-trip-pricing"><%= number_to_currency(place.price) %></h2>
       </div>
     </div>
     <% end %>
