@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container py-3">
   <div class="places_container">
     <% @places.each do |place| %>
     <%#= link_to place_path(place) do %>
       <div class="card-trip">
-       <% place.photos.last(1).each do |photo| %>
+        <% place.photos.last(1).each do |photo| %>
           <%= cl_image_tag photo.key, crop: :fill %>
-       <% end %>
+        <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= place.city %></h2>
@@ -13,7 +13,9 @@
           </div>
           <h2 class="card-trip-pricing"><%= number_to_currency(place.price)%></h2>
         </div>
-        <div class="btn btn-outline-dark mt-3"><%= link_to "Ver mas", place_path(place) %>
+        <div class="container pb-3">
+        <div class="btn btn-outline-dark"><%= link_to "Ver más", place_path(place) %>
+        </div>
         </div>
       </div>
       <% #end %>
