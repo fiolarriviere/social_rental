@@ -1,0 +1,22 @@
+<div class="container">
+
+<h2 class="text-center">Alquila tu <strong id="red-word">Local</strong> para tus eventos</h2>
+
+<div id="wrapper">
+  <div class="row">
+    <div class="text-left form-login">
+      <h2 class="text-center"><strong>Ingresa tu Local </strong></h2>
+      <br>
+      <%= simple_form_for @place do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :area, placeholder: "Metros cuadrados del local", :label_html => { :class => "label-css"} %>
+      <%= f.input :address, label: "Mi local se encuentra ubicado en ", placeholder: "Calle Las Moreas N° 34" %>
+      <%= f.input :city, placeholder: "Caracas" %>
+      <%= f.input :price, label: "Precio por hora, mínimo 4, en dolares", placeholder: "10" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+       <%= f.submit "Crear Local", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
