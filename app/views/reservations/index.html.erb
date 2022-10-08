@@ -1,36 +1,31 @@
-<div class="container">
-  <div class="bg-white">
-    <h1>Reservación del cliente:</h1>
-    <h3> <%=  %> <%=  %></h3><br>
+<div class="container bg-white p-3">
+  <div>
+    <h1 class="text-start py-2">Reservación del cliente:</h1>
+      <h3 class="text-start py-3"><strong>
+      <%= current_user.first_name %> <%= current_user.last_name %>
+      </strong></h3><br>
     <% @reservations.each do |reservation| %>
-    <%= reservation.user.first_name %> <%= reservation.user.last_name %>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9">
-    <%# mostrar imagen  %>
-      <% reservation.place.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 150, width: 250, crop: :pad %>
-      <% end %>
-    <%# mostrar imagen  %>
-      <div class="row">
-        <div class="col-8 col-sm-6">
-
-          Level 2: .col-8 .col-sm-6
-
-        </div>
-        <div class="col-4 col-sm-6">
-          Level 2: .col-4 .col-sm-6
+  <div class="card mb-3" style="max-width: 680px;">
+    <div class="row g-0">
+      <div class="col-md-4 p-2">
+        <% reservation.place.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 150, width: 225, crop: :pad %>
+        <% end %>
+      </div>
+      <div class="col-md-6 x-2">
+        <div class="card-body">
+          <h6 class="card-title"> <%= reservation.place.address %>, <%= reservation.place.city %></h6>
+          <p> Información básica del local</p>
+          <p> Precio: <%= number_to_currency(reservation.total_price) %></p>
+          <%= link_to "Más detalle", reservation_path(reservation) %>
         </div>
       </div>
     </div>
   </div>
-<% end %>
-</div>
-
+    <% end %>
     <%# Boton  %>
     <div class="container col-3 mb-5 py-5">
       <%= link_to "Ver otros locales", places_path, class: "btn-outline-dark" %>
     </div>
     <%# fin Boton  %>
-  </div>
 </div>
