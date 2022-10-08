@@ -14,10 +14,10 @@
         </div>
       </div>
   </div>
-   <p class="btn btn-basic rounded-pill "><%= link_to 'Back', places_path, class: "btn-link-show" %></p>
+   <p class="btn btn-basic"><%= link_to 'Back', places_path, class: "btn-link-show" %></p>
    <% if @place.user == current_user %>
-   <p class="btn btn-basic rounded-pill mx-4"><%= link_to 'Edit', edit_place_path(@place), class: "btn-link-show" %></p>
-   <p class="btn btn-destroy rounded-pill"><%= link_to 'Destroy', @place, method: :delete, data: { confirm: 'Estas Seguro?' }, class: "btn-link-show" %></p>
+   <p class="btn btn-basic mx-4"><%= link_to 'Edit', edit_place_path(@place), class: "btn-link-show" %></p>
+   <p class="btn btn-destroy"><%= link_to 'Destroy', @place, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn-link-show" %></p>
   <%end%>
 
   <p><strong>Reseñas</strong></p>

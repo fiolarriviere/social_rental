@@ -1,10 +1,8 @@
 <!-- BANNER -->
-<div class="container">
-  <div class="banner_home" style="background-image: url(https://i.pinimg.com/originals/66/0f/2b/660f2b81d6b05367c87bca6e49608aa8.jpg);">
-    <h1>The Social Rental</h1>
-    <h3>Renta el local ideal para cualquier evento</h3>
+
+  <div class="banner_home" style="background-image: url(https://i.pinimg.com/originals/c6/74/57/c67457b78809bb5967e0ee1055e5cbd5.jpg);">
   </div>
-</div>
+
 
 <!-- BUSCADOR -->
 <!-- EVENTO | FECHA | CIUDAD | ASISTENTES -->
@@ -42,9 +40,10 @@
         </div>
         <h2 class="card-trip-pricing"><%= number_to_currency(place.price) %></h2>
       </div>
-      <div class="btn btn-outline-dark mt-3"><%= link_to "Ver mas", place_path(place) %>
-        </div>
-    </div>
+      <div class="container pb-3">
+        <div class="btn btn-outline-dark py3"><%= link_to "Ver más", place_path(place) %> </div>
+      </div>
+      </div>
     <% end %>
   </div>
 </div>
