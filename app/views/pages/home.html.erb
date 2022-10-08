@@ -47,46 +47,25 @@
 <div class="container pb-3 d-flex">
   <h4>Lo más destacado del mes:</h4>
 </div>
+
+
 <div class="container py-3 d-flex justify-content-center">
 
   <div class="card-container">
-
+    <% @places.each do |place| %>
     <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <% place.photos.last(1).each do |photo| %>
+        <%= cl_image_tag photo.key, crop: :fill %>
+      <% end %>
       <div class="card-trip-infos">
         <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
+          <h2><%= place.city %></h2>
+          <p><%= place.address %></p>
         </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        <h2 class="card-trip-pricing"><%= place.price %></h2>
       </div>
     </div>
-
-    <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
-    <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
+    <% end %>
   </div>
 </div>
 
@@ -130,7 +109,7 @@
   <p>¿Quieres registrar tu local?</p>
 </div>
 <div class="container d-flex justify-content-center">
-  <button type="button" class="btn btn-outline-dark">empezar</button>
+  <%= link_to "Empezar", new_place_path, class:"btn btn-outline-dark" %>
 </div>
 
 <!-- FOOTER -->
