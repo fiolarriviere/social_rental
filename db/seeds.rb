@@ -8,32 +8,49 @@
 
 # puts "creando usuario"
 # User.create(
-#   first_name: "tigrillo",
-#   last_name: "colmillo",
-#   email: "tigro666@gmail.com",
-#   password: "11112222",
-#   city: "la jungla",
+#   first_name: "Eryck",
+#   last_name: "Milanoso",
+#   email: "emilanoso@gmail.com",
+#   password: "123456",
+#   city: "santiago",
 #   phone_number: "312345672"
 # )
-# puts "User creado"
+# puts "User creado 2"
+# User.create(
+#   first_name: "fiorella",
+#   last_name: "castillo",
+#   email: "fcastillo@gmail.com",
+#   password: "654321",
+#   city: "montevideo",
+#   phone_number: "312345672"
+# )
+# puts "User creado 3"
+# User.create(
+#   first_name: "Andres",
+#   last_name: "Ibañez",
+#   email: "hacker_master@gmail.com",
+#   password: "987654321",
+#   city: "Copiapo",
+#   phone_number: "42342424"
+# )
+# puts "Users creados"
 
 # puts "creando Place"
-
 # Place.create(
-#   address: "huesos 123",
-#   city: "madagascar",
-#   area: 150.5,
-#   price: 250.9,
-#   user_id: 1
+#   address: "356 Av. José Pardo",
+#   city: "Miraflores",
+#   area: 120.80,
+#   price: 80,
+#   user_id: 4
 # )
 # puts "Place creado"
-
 # puts "creando Place"
+
 # Place.create(
-#   address: "los aires 3453",
-#   city: "everest",
-#   area: 1000.0,
-#   price: 500.5,
+#   address: "Dr, del Valle Iberlucea 800",
+#   city: "Buenos Aires",
+#   area: 7600,
+#   price: 4000,
 #   user_id: 2
 # )
 # puts "Place creado"

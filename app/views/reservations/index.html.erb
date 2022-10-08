@@ -1,25 +1,28 @@
 <div class="container">
+  <div center="left" class= "btn btn-light" class="col-4">
+    <%= link_to "Ver más locales", places_path %>
+  </div>
   <div>
-
-    <div center="left" class= "btn btn-light" class="col-4">
-      <%= link_to "Ver más locales", places_path %>
-    </div>
-
     <h1>Reservación del cliente:</h1>
-    <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
-      <br>
+    <h3><%= current_user.last_name %>, <%= current_user.first_name %></h3><br>
     <% @reservations.each do |reservation| %>
-      <ul><li>
-        <%= reservation.id %>
-        <p>Fecha:</p>
-        <p>Inicio - <%= reservation.date_start %> - <%#= reservation.start_time("%H:%M") %> </p>
-        <p>Fin - <%= reservation.date_finish %> - <%#= Time.now.reservation.start_time("%H:%M") %> </p>
-
-        <%= reservation.place.photos.each do |photo|%>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-
-      </li></ul>
+      <div class="card mb-3" style="max-width: 740px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <% reservation.place.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 150, width: 250, crop: :pad %>
+            <% end %>
+          </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"> <%= reservation.place.address %>, <%= reservation.place.city %> </h5>
+            <p class="card-text"> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"> Precio: <%= number_to_currency(reservation.total_price) %></p>
+            <%= link_to "Ver más informacion de la reserva", reservation_path(reservation) %>
+          </div>
+        </div>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
