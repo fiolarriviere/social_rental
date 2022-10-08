@@ -3,10 +3,7 @@ class PlacesController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = <<~SQL
-        places.city @@ :query
-        OR places.area @@ :query
-      SQL
+      sql_query = "city ILIKE :query"
       @places = Place.where(sql_query, query: "%#{params[:query]}%")
     else
       @places = Place.all

@@ -10,37 +10,15 @@
 <!-- EVENTO | FECHA | CIUDAD | ASISTENTES -->
 
 <div class="container py-5 d-flex justify-content-center"> <!-- py espacio arriba y abajo  -->
-  <form class="row row-cols-lg-auto g-3 align-items-center">
-    <div class="col-12">
-      <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-text">¿Dónde?</div>
-        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Buscar">
-      </div>
-    </div>
 
-    <form class="row row-cols-lg-auto g-3 align-items-center">
-      <div class="col-12">
-        <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
-        <div class="input-group">
-          <div class="input-group-text">¿Cuándo?</div>
-          <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Buscar">
-        </div>
-      </div>
-
-      <form class="row row-cols-lg-auto g-3 align-items-center">
-        <div class="col-12">
-          <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
-          <div class="input-group">
-            <div class="input-group-text">¿Para cuántos?</div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Buscar">
-          </div>
-        </div>
-
-    <div class="col-12">
-      <button type="submit" class="btn btn-outline-dark">Buscar</button>
-    </div>
-  </form>
+  <%= form_with url: places_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "¿Dónde?"
+    %>
+    <%= submit_tag "Buscar", class: "btn btn-outline-dark" %>
+  <% end %>
 </div>
 
 <!-- CARDS -->
@@ -72,7 +50,7 @@
 
 <!-- CARRUSEL -->
 <div class="container py-3 d-flex justify-content-center">
-  <h4>Encuentra el local ideal para realizar el evento de tus sueños, con un click.</h4>
+  <h4>Encuentra con nosotros el lugar ideal para realizar el evento de tus sueños.</h4>
 </div>
 
 <div class="container pb-3 d-flex justify-content-center">
