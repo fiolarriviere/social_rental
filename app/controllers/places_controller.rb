@@ -2,7 +2,15 @@ class PlacesController < ApplicationController
   before_action :set_place, only: %w[show edit update destroy]
 
   def index
-    @places = Place.all
+    if params[:query].present?
+      sql_query = <<~SQL
+        places.city @@ :query
+        OR places.area @@ :query
+      SQL
+      @places = Place.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @places = Place.all
+    end
   end
 
   def new
